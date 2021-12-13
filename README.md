@@ -1,2 +1,2 @@
 # jfrogPipeline
-JzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpva
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
