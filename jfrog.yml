@@ -16,7 +16,7 @@ pipelines:
       type: Bash
       configuration:
           integrations:
-              - name: spectraldsn
+              - name: jfrogPipeline
           inputResources:
               - name: myScannedRepo
       execution:
