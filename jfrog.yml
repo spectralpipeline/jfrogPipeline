@@ -1,0 +1,26 @@
+resources:
+- name: myScannedRepo
+  type: GitRepo
+  configuration:
+    # Your JFrog integration with Github
+    gitProvider: "jfrogPipeline"
+    # Github repository
+    path: "spectralpipeline/jfrogPipeline"
+    branches:
+      include: main
+
+pipelines:
+- name: Spectral
+  steps:
+    - name: SpectralScan
+      type: Bash
+      configuration:
+          integrations:
+              - name: spectraldsn
+          inputResources:
+              - name: myScannedRepo
+      execution:
+        onExecute:
+          - cd dependencyState/resources/myScannedRepo
+          - curl -L "https://bruce-mountain-16192.herokuapp.com/latest/x/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
+          - $HOME/.spectral/spectral scan --ok --dsn $int_spectraldsn_SPECTRAL_DSN
