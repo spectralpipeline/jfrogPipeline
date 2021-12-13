@@ -16,11 +16,11 @@ pipelines:
       type: Bash
       configuration:
           integrations:
-              - name: jfrogPipeline
+              - name: spectraldsn
           inputResources:
               - name: myScannedRepo
       execution:
         onExecute:
           - cd dependencyState/resources/myScannedRepo
-          - curl -L "https://bruce-mountain-16192.herokuapp.com/latest/x/sh?dsn=$int_jfrogPipeline_SPECTRAL_DSN" | sh
-          - $HOME/.spectral/spectral scan --ok --dsn $int_jfrogPipeline_SPECTRAL_DSN
+          - curl -L "https://bruce-mountain-16192.herokuapp.com/latest/x/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
+          - $HOME/.spectral/spectral scan --ok --dsn $int_spectraldsn_SPECTRAL_DSN
