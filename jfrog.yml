@@ -10,9 +10,9 @@ resources:
       include: main
       
 - name: cron_trigger
-    type: CronTrigger
-    configuration:
-      interval: '0 0 * * *'
+  type: CronTrigger
+  configuration:
+    interval: '0 0 * * *'
 
 pipelines:
 - name: Spectral
