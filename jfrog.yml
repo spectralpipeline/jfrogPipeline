@@ -12,7 +12,7 @@ resources:
 - name: cron_trigger
   type: CronTrigger
   configuration:
-    interval: '* * * * *'
+    interval: '0 0 * * *'
 
 pipelines:
 - name: Spectral
