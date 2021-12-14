@@ -12,7 +12,7 @@ resources:
 - name: cron_trigger
   type: CronTrigger
   configuration:
-    interval: '0 0 * * *'
+    interval: '* * * * *'
 
 pipelines:
 - name: Spectral
@@ -24,6 +24,7 @@ pipelines:
               - name: spectraldsn
           inputResources:
               - name: myScannedRepo
+              - name: cron_trigger
       execution:
         onExecute:
           - cd dependencyState/resources/myScannedRepo
