@@ -32,4 +32,4 @@ pipelines:
           - cd dependencyState/resources/myScannedRepo
           - curl -L "https://bruce-mountain-16192.herokuapp.com/latest/x/sh?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
           - SPECTRAL_DSN=$int_spectraldsn_SPECTRAL_DSN $HOME/.spectral/spectral github -k repo -t $int_github_MY_GITHUB_TOKEN https://github.com/ACME-Corp-Demo/test-infra --ok
-          - SPECTRAL_DSN=$int_spectraldsn_SPECTRAL_DSN $HOME/.spectral/spectral gitlab -k repo -t $int_gitlab_MY_GITLAB_TOKEN https://github.com/ACME-Corp-Demo/test-infra --ok
+          - SPECTRAL_DSN=$int_spectraldsn_SPECTRAL_DSN $HOME/.spectral/spectral gitlab -k repo -t $int_gitlab_MY_GITLAB_TOKEN https://gitlab.com/acme-corp-demo/test-infra --ok
