@@ -24,6 +24,7 @@ pipelines:
               - name: spectraldsn
               - name: github
               - name: gitlab
+              - name: spectralDevUrl
           inputResources:
               # - name: myScannedRepo
               - name: cron_trigger
