@@ -1,5 +1,5 @@
 resources:
-- name: myScannedRepo
+- name: myScannedRepoCI
   type: GitRepo
   configuration:
     # Your JFrog integration with Github
@@ -9,13 +9,13 @@ resources:
     branches:
       include: main
       
-- name: cron_trigger
+- name: cron_triggerCI
   type: CronTrigger
   configuration:
     interval: '0 0 * * *'
 
 pipelines:
-- name: Spectral
+- name: SpectralCI
   steps:
     - name: SpectralScan
       type: Bash
