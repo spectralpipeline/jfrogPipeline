@@ -1,0 +1,34 @@
+resources:
+- name: myScannedRepo
+  type: GitRepo
+  configuration:
+    # Your JFrog integration with Github
+    gitProvider: "jfrogPipeline"
+    # Github repository
+    path: "spectralpipeline/jfrogPipeline"
+    branches:
+      include: main
+      
+- name: cron_trigger
+  type: CronTrigger
+  configuration:
+    interval: '0 0 * * *'
+
+pipelines:
+- name: Spectral
+  steps:
+    - name: SpectralScan
+      type: Bash
+      configuration:
+          integrations:
+              - name: spectraldsn
+              - name: spectralDevUrl
+          inputResources:
+              # - name: myScannedRepo
+              - name: cron_trigger
+      execution:
+        onExecute:
+          # - cd dependencyState/resources/myScannedRepo
+          - curl -L "$int_spectralDevUrl_SPECTRAL_DEV_URL?dsn=$int_spectraldsn_SPECTRAL_DSN" | sh
+          - $HOME/.spectral/spectral scan --ok --dsn $int_spectraldsn_SPECTRAL_DSN
+        
